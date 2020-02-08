@@ -14,6 +14,7 @@ function log(target, name, descriptor) {
 })
 export class AppComponent {
   title = 'intro2angular';
+  list = [];
 
   constructor() {
     this.simpleMethod();
@@ -24,4 +25,12 @@ export class AppComponent {
     console.log('hi there');
   }
 
+
+  addHW() {
+    this.list.push('hi');
+  }
+
+  removeHW() {
+    this.list.pop();
+  }
 }
