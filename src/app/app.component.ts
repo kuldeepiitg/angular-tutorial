@@ -15,6 +15,21 @@ function log(target, name, descriptor) {
 export class AppComponent {
   title = 'intro2angular';
 
+  users = [
+    {
+      name : 'Kuldeep Yadav',
+      age : '29'
+    },
+    {
+      name: 'Maurya',
+      age: '28'
+    },
+    {
+      name: 'Raushan',
+      age: '22'
+    }
+  ];
+
   constructor() {
     this.simpleMethod();
   }
