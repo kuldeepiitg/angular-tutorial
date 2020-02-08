@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelloComponent implements OnInit {
 
+  name = 'kuldeep yadav';
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
