@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {RecordsService} from './records.service';
 
 function log(target, name, descriptor) {
   console.log(target);
@@ -15,23 +16,13 @@ function log(target, name, descriptor) {
 export class AppComponent {
   title = 'intro2angular';
 
-  users = [
-    {
-      name : 'Kuldeep Yadav',
-      age : '29'
-    },
-    {
-      name: 'Maurya',
-      age: '28'
-    },
-    {
-      name: 'Raushan',
-      age: '22'
-    }
-  ];
+  users = [];
+  recordService: RecordsService;
 
-  constructor() {
+  constructor(private recordsService: RecordsService) {
     this.simpleMethod();
+    this.users = recordsService.getData();
+    this.recordService = recordsService;
   }
 
   @log
@@ -39,4 +30,7 @@ export class AppComponent {
     console.log('hi there');
   }
 
+  addData() {
+    this.recordsService.addRecord({name : 'Naveen', age: '22'});
+  }
 }
