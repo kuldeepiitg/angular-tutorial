@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecordsService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   records = [
     {
@@ -28,9 +29,22 @@ export class RecordsService {
 
   addRecord(newRecord) {
     this.records.push(newRecord);
+    this.login();
   }
 
   getData() {
     return this.records;
+  }
+
+  login() {
+
+    const credentials = {
+      username : 'kuldeep5534@gmail.com',
+      secret : 'mangalam'
+    }
+
+    this.http.post('http://scholars.tarkshala.com:8080/authentication/login', credentials, {responseType: 'json'}).subscribe(data => {
+      console.log(data);
+    });
   }
 }
